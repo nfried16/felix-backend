@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors")
 require("./db/mongoose");
 const countRouter = require("./routes/count");
+const likeRouter = require("./routes/like");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,6 +17,8 @@ app.use(cors())
 // app.use(bodyParser.json());
 
 app.use("/count", countRouter);
+app.use("/like", likeRouter);
+
 // // Is this just not needed?
 // const server = http.createServer(app);
 // server.listen(port);
