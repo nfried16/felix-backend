@@ -3,7 +3,8 @@ const Like = require("../models/like");
 const router = new express.Router();
 
 router.get("/", async(req, res) => {
-    const ret = await Like.find();
+    // const ret = await Like.find();
+    const ret = await Like.find().limit(100).sort({$natural:-1});
     if(!ret) {
         return res.send("0");
     }
