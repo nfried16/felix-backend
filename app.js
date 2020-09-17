@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require("cors")
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var countRouter = require('./routes/count');
+var indexRouter = require('./src/index');
+var usersRouter = require('./src/routes/users');
+var countRouter = require('./src/routes/count');
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(cors())
 app.use('/', indexRouter);
 app.use('/count', countRouter);
 
-require("./db/mongoose");
+require("./src/db/mongoose");
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
