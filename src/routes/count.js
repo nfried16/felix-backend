@@ -12,7 +12,7 @@ router.get("/", async(req, res) => {
 
 router.post("/", async (req, res) => {
     // Put userId from auth to put into body
-    const count = await Count.findOne();
+    let count = await Count.findOne();
     if(count == null) {
         count = new Count({count: 0});
     }
